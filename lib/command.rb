@@ -26,7 +26,7 @@ class Command
   def check_scope
     return unless config["check_scope"] == "modified"
 
-    command = "git diff #{base_branch} origin/#{ENV['GITHUB_HEAD_REF']} --name-only --diff-filter=AM | xargs"
+    command = "git diff #{base_branch} origin/#{ENV['GITHUB_REF_NAME']} --name-only --diff-filter=AM | xargs"
     puts command
     command
   end
